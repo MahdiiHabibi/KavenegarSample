@@ -1,0 +1,81 @@
+﻿@if (TempData["Massage_TypeOfAlert"] != null)
+{
+	<div id="DeleteAlert">
+		<style>
+			.alert-layout {
+				padding: 15px;
+				margin-bottom: 20px;
+				border-radius: 24px 4px;
+				width: fit-content;
+				position: fixed;
+				bottom: 4%;
+				right: 3%;
+				box-shadow: black 1px 1px 1px 1px;
+				
+			}
+
+			.success {
+				color: #155724;
+				background-color: #d4edda;
+				border: 2px solid #155724;
+			}
+
+			.warning {
+				color: #856404;
+				background-color: #fff3cd;
+				border: 2px solid #856404;
+			}
+
+			.danger {
+				color: #721c24;
+				background-color: #f8d7da;
+				border: 2px solid #f5c6cb;
+			}
+
+			.info {
+				color: #0c5460;
+				background-color: #d1ecf1;
+				border: 2px solid #bee5eb;
+			}
+
+			.primary {
+				color: #004085;
+				background-color: #cce5ff;
+				border: 2px solid #b8daff;
+			}
+
+			.secondary {
+				color: #383d41;
+				background-color: #e2e3e5;
+				border: 2px solid #d6d8db;
+			}
+
+			.dark {
+				color: #fff;
+				background-color: #343a40;
+				border: 2px solid #6c757d;
+			}
+
+		</style>
+
+		<div class="alert-layout @TempData["Massage_TypeOfAlert"]  bold" id="DeleteAlert-Alert" style="transition: margin-right 0.3s ease-out;" onclick="DeleteAlert()">
+			<strong style="font-weight: bold; ">@TempData["Massage_TitleOfAlert"]  :  </strong>
+			@TempData["Massage_DescriptionOfAlert"]
+			<b style="font-weight: bold; padding-right: 15px;">
+				&times;
+			</b>
+		</div>
+		<script>
+			function DeleteAlert() {
+				document.getElementById("DeleteAlert-Alert").style.marginRight = "-337px";
+			}
+
+			setTimeout(function () {
+				document.getElementById("DeleteAlert-Alert").style.marginRight = "-337px";
+			
+			}, 10000);
+			setTimeout(function () { $("#DeleteAlert").remove(); }, 11000);
+			
+		</script>
+	</div>
+}
